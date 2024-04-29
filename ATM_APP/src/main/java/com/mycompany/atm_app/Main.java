@@ -4,6 +4,11 @@
  */
 package com.mycompany.atm_app;
 
+import ATM.Deposit;
+import ATM.FastCash;
+import ATM.LogIn;
+import ATM.PIN_Change;
+
 /**
  *
  * @author pc2
@@ -40,7 +45,7 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(150, 150, 150));
+        jButton1.setBackground(new java.awt.Color(64, 68, 188));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("DEPOSIT");
         jButton1.setToolTipText("DEPOSIT");
@@ -55,7 +60,7 @@ public class Main extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 420, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(150, 150, 150));
+        jButton2.setBackground(new java.awt.Color(64, 68, 188));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("CASH WITHDRAWL");
         jButton2.setToolTipText("CASH WITHDRAWL");
@@ -70,15 +75,15 @@ public class Main extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 420, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(48, 51, 56));
+        jLabel2.setFont(new java.awt.Font("Segoe Script", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(64, 68, 188));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Please Select Your Transaction");
         jLabel2.setToolTipText("");
         jLabel2.setRequestFocusEnabled(false);
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 330, 460, 26));
 
-        jButton3.setBackground(new java.awt.Color(150, 150, 150));
+        jButton3.setBackground(new java.awt.Color(64, 68, 188));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("PIN CHANGE");
         jButton3.setToolTipText("PIN CHANGE");
@@ -86,9 +91,14 @@ public class Main extends javax.swing.JFrame {
         jButton3.setFocusPainted(false);
         jButton3.setFocusable(false);
         jButton3.setPreferredSize(new java.awt.Dimension(150, 35));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 520, -1, -1));
 
-        jButton4.setBackground(new java.awt.Color(150, 150, 150));
+        jButton4.setBackground(new java.awt.Color(64, 68, 188));
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("BALANCE ENQUIRY");
         jButton4.setToolTipText("BALANCE ENQUIRY");
@@ -98,7 +108,7 @@ public class Main extends javax.swing.JFrame {
         jButton4.setPreferredSize(new java.awt.Dimension(150, 35));
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 520, -1, -1));
 
-        jButton5.setBackground(new java.awt.Color(150, 150, 150));
+        jButton5.setBackground(new java.awt.Color(64, 68, 188));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("MINI STATEMENT");
         jButton5.setToolTipText("MINI STATEMENT");
@@ -108,7 +118,7 @@ public class Main extends javax.swing.JFrame {
         jButton5.setPreferredSize(new java.awt.Dimension(150, 35));
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 470, 150, -1));
 
-        jButton6.setBackground(new java.awt.Color(150, 150, 150));
+        jButton6.setBackground(new java.awt.Color(64, 68, 188));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("FAST CASH");
         jButton6.setToolTipText("FAST CASH");
@@ -116,16 +126,26 @@ public class Main extends javax.swing.JFrame {
         jButton6.setFocusPainted(false);
         jButton6.setFocusable(false);
         jButton6.setPreferredSize(new java.awt.Dimension(150, 35));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 470, 150, -1));
 
-        jButton7.setBackground(new java.awt.Color(150, 150, 150));
+        jButton7.setBackground(new java.awt.Color(64, 68, 188));
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("BACK");
-        jButton7.setToolTipText("BACK");
+        jButton7.setText("EXIT");
+        jButton7.setToolTipText("EXIT");
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.setFocusPainted(false);
         jButton7.setFocusable(false);
         jButton7.setPreferredSize(new java.awt.Dimension(150, 35));
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 600, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -137,12 +157,28 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
+        Deposit obj = new Deposit();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        this.setVisible(false);
+        FastCash obj = new FastCash();
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        this.setVisible(false);
+        PIN_Change obj = new PIN_Change();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        ATM.LogIn obj = new LogIn();
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments

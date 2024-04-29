@@ -4,6 +4,9 @@
 
 package com.mycompany.atm_app;
 
+import ATM.LogIn;
+
+
 /**
  *
  * @author pc2
@@ -12,6 +15,6 @@ public class ATM_APP {
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
-        Main obj = new Main();
+        ATM.LogIn obj = new LogIn();
     }
 }
