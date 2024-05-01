@@ -185,7 +185,7 @@ public class LogIn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter your Password!");
         }
         else {
-            String sqlQuery = "SELECT * FROM Customer WHERE Customer_ID = '" + ID + "' AND Password = '" + pass + "'";
+            String sqlQuery = "SELECT * FROM Account INNER JOIN Customer ON Account.Customer_ID = Customer.Customer_ID WHERE Account_NO = '" + ID + "' AND Password = '" + pass + "'";
             try {
                 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
                 
@@ -196,6 +196,7 @@ public class LogIn extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Please enter a valid data!");
                 } else {
                     JOptionPane.showMessageDialog(null, "Login Successful");
+                    SMTP.sendmail("omarhussein2111@gmail.com", "you Login to your Account.");
                    com.mycompany.atm_app.Main obj = new Main();
                    this.setVisible(false);
                 }

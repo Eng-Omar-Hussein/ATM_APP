@@ -111,6 +111,7 @@ public class DataBase {
             System.out.println(rowsAffected + " row(s) updated successfully.");
             
             JOptionPane.showMessageDialog(null, "Updated Successfully");
+            SMTP.sendmail("omarhussein2111@gmail.com", "you made a Deposet of $ "+inc);
 
         } catch (SQLException e) {
             // Handle SQL exceptions
@@ -169,6 +170,7 @@ public class DataBase {
             System.out.println(rowsAffected + " row(s) updated successfully.");
             System.out.println(rowsAffected1 + " row(1) updated successfully.");
             JOptionPane.showMessageDialog(null, "Updated Successfully");
+            SMTP.sendmail("omarhussein2111@gmail.com", "you made a FastCash for $ "+dec);
 
         } catch (SQLException e) {
             // Handle SQL exceptions
@@ -192,7 +194,7 @@ public class DataBase {
         }
     }
     
-     public static void Change_PIN(int id, int new_PIN) {
+     public static void Change_PIN(int id, String new_PIN) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
 
@@ -207,14 +209,14 @@ public class DataBase {
             preparedStatement = connection.prepareStatement(sql);
 
             // Set parameters for the PreparedStatement
-            preparedStatement.setInt(1, new_PIN);
-            preparedStatement.setInt(2, id);
-
+            preparedStatement.setString(1, new_PIN);
+            preparedStatement.setString(2, getValue("Account_NO", "Account INNER JOIN Customer ON Account.Customer_ID = Customer.Customer_ID", "Account_NO = "+id));
             // Execute the update query
             int rowsAffected = preparedStatement.executeUpdate();
 
             System.out.println(rowsAffected + " row(s) updated successfully.");
             JOptionPane.showMessageDialog(null, "Updated Successfully");
+            SMTP.sendmail("omarhussein2111@gmail.com", "you Change your PIN");
 
         } catch (SQLException e) {
             // Handle SQL exceptions

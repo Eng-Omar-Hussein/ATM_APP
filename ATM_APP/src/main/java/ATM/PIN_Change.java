@@ -114,13 +114,14 @@ public class PIN_Change extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        int old_password= Integer.parseInt(jPasswordField2.getText());
-        int new_password= Integer.parseInt(jPasswordField1.getText());
-        int repeat_password = Integer.parseInt(jPasswordField3.getText());
+        String old_password= jPasswordField2.getText();
+        String new_password= jPasswordField1.getText();
+        String repeat_password = jPasswordField3.getText();
         int id=LogIn.CustID;
-        int password = Integer.parseInt(ATM.DataBase.getValue("Password", "Customer", "Customer_ID = "+id));
-        if(old_password==password){
-            if(new_password==repeat_password){
+        String password = ATM.DataBase.getValue("Password", "Account INNER JOIN Customer ON Account.Customer_ID = Customer.Customer_ID", "Account_NO = "+id);
+        if(old_password == null ? password == null : old_password.equals(password)){
+            if(new_password.length()>=4){
+                if(new_password == null ? repeat_password == null : new_password.equals(repeat_password)){
                 ATM.DataBase.Change_PIN(id, new_password);
                 jPasswordField3.setText(null);
                 jPasswordField2.setText(null);
@@ -129,6 +130,11 @@ public class PIN_Change extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Unmatched pins");
                 jPasswordField3.setText(null);
             }
+            }else{
+                JOptionPane.showMessageDialog(this, "lenght of new_pin less than 4");
+            jPasswordField1.setText(null);
+            }
+            
         }else{
             JOptionPane.showMessageDialog(this, "old_pin is wrong");
             jPasswordField2.setText(null);
